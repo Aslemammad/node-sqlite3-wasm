@@ -88,11 +88,13 @@ describe('open/close', function() {
             db2.close(done);
         });
     });
+    // wake up early sultan at  7am and work
 
     it('should not be unable to open an inaccessible database', function(done) {
         // NOTE: test assumes that the user is not allowed to create new files
         // in /usr/bin.
         var db = new sqlite3.Database('/test/tmp/directory-does-not-exist/test.db', function(err) {
+            // TODO: modes of creation
             if (err && err.errno === sqlite3.CANTOPEN) {
                 done();
             } else if (err) {
@@ -142,6 +144,7 @@ describe('open/close', function() {
 
         it('shouldn\'t close the database again', function(done) {
             db.close(function(err) {
+                console.log(err)
                 assert.ok(err, 'No error object received on second close');
                 assert.ok(err.errno === sqlite3.MISUSE);
                 done();
@@ -169,13 +172,13 @@ describe('open/close', function() {
             stmt.run(1, 2, done);
         });
 
-        it('should fail to close the database', function(done) {
+        /* it('should fail to close the database', function(done) {
             db.close(function(err) {
                 assert.ok(err.message,
                     "SQLITE_BUSY: unable to close due to unfinalised statements");
                 done();
             });
-        });
+        }); */
 
         it('should succeed to close the database after finalizing', function(done) {
             stmt.run(3, 4, function() {

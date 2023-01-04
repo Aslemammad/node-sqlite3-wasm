@@ -50,6 +50,7 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.0",
     "node-addon-api": "^4.2.0",
+    "sqlite3-wasm-nodefs": "^0.0.1",
     "tar": "^6.1.11"
   },
   "devDependencies": {
@@ -72,8 +73,8 @@
     "build": "node-pre-gyp build",
     "build:debug": "node-pre-gyp build --debug",
     "install": "node-pre-gyp install --fallback-to-build",
-    "pretest": "node test/support/createdb.js",
-    "test": "mocha -R spec --timeout 480000",
+    "pretest": "/home/bagher/.nvm/versions/node/v18.4.0/bin/node --no-warnings  --experimental-wasm-threads test/support/createdb.js",
+    "test": "/home/bagher/.nvm/versions/node/v18.4.0/bin/node --no-warnings --experimental-worker --experimental-wasm-threads ./node_modules/.bin/mocha -R spec --timeout 480000",
     "pack": "node-pre-gyp package"
   },
   "license": "BSD-3-Clause",
