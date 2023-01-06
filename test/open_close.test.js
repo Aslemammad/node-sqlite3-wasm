@@ -172,6 +172,7 @@ describe('open/close', function() {
             stmt.run(1, 2, done);
         });
 
+        // TODO:
         /* it('should fail to close the database', function(done) {
             db.close(function(err) {
                 assert.ok(err.message,
