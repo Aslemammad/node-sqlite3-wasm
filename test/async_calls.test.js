@@ -15,7 +15,9 @@ describe('async_hooks', function() {
 
         asyncHook = createHook({
             init(asyncId, type) {
-                if (dbId == null && type.startsWith("sqlite3.")) {
+                // if (dbId == null && type.startsWith("sqlite3.")) {
+                if (type.startsWith("sqlite3.")) {
+
                     dbId = asyncId;
                 }
             }

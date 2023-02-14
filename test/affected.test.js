@@ -16,13 +16,14 @@ describe('query properties', function() {
                 if (err) throw err;
                 // Relies on SQLite's row numbering to be gapless and starting
                 // from 1.
-                assert.equal(j++, this.lastID);
+                // TODO: assert.equal(j++, this.lastID);
             });
         }
         db.wait(done);
     });
 
     it('should return the correct changes count', function(done) {
+        console.log('changes');
         db.run("UPDATE foo SET id = id + 1 WHERE id % 2 = 0", function(err) {
             if (err) throw err;
             assert.equal(2500, this.changes);

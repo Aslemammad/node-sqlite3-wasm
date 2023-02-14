@@ -54,6 +54,7 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
+    "@tybys/emnapi": "^0.24.0",
     "eslint": "6.8.0",
     "mocha": "7.2.0",
     "node-pre-gyp-github": "1.4.4"
@@ -74,7 +75,7 @@
     "build:debug": "node-pre-gyp build --debug",
     "install": "node-pre-gyp install --fallback-to-build",
     "pretest": "/home/bagher/.nvm/versions/node/v18.4.0/bin/node --no-warnings  --experimental-wasm-threads test/support/createdb.js",
-    "test": "/home/bagher/.nvm/versions/node/v18.4.0/bin/node --no-warnings --experimental-worker --experimental-wasm-threads ./node_modules/.bin/mocha -R spec --timeout 480000",
+    "test": "/home/bagher/.nvm/versions/node/v18.4.0/bin/node --no-warnings --experimental-worker --experimental-wasm-threads ./node_modules/.bin/mocha -R spec --timeout 12000",
     "pack": "node-pre-gyp package"
   },
   "license": "BSD-3-Clause",
