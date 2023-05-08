@@ -144,7 +144,6 @@ describe('open/close', function() {
 
         it('shouldn\'t close the database again', function(done) {
             db.close(function(err) {
-                console.log(err)
                 assert.ok(err, 'No error object received on second close');
                 assert.ok(err.errno === sqlite3.MISUSE);
                 done();
